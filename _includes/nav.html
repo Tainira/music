@@ -1,0 +1,16 @@
+{%- if page_paths -%}
+
+<nav class="top-menu">
+    <ul class="top-menu__menu">
+        {%- for path in page_paths -%}
+        {%- assign my_page = site.pages | where: "path", path | first -%}
+        {%- if my_page.title -%}
+
+        <li class="top-menu__item"><a href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a></li>
+
+        {%- endif -%}
+        {%- endfor -%}
+         </ul>
+</nav>
+
+{%- endif -%}
